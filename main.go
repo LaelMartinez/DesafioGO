@@ -64,14 +64,18 @@ func EscreverArquivo(nomeArquivo string, pessoas Pessoas) error {
 	escritorCSV := csv.NewWriter(arquivo)
 	defer escritorCSV.Flush()
 
+	linha := []string{"Nome", "Idade", "Pontuação"}
+	escritorCSV.Write(linha)
+
 	for _, pessoa := range pessoas {
-		linha := []string{pessoa.Nome, strconv.Itoa(pessoa.Idade), strconv.Itoa(pessoa.Pontuacao)}
-		err := escritorCSV.Write(linha)
-		if err != nil {
-			return err
+		if pessoa.Nome != "Nome" {
+			linha := []string{pessoa.Nome, strconv.Itoa(pessoa.Idade), strconv.Itoa(pessoa.Pontuacao)}
+			err := escritorCSV.Write(linha)
+			if err != nil {
+				return err
+			}
 		}
 	}
-
 	return nil
 }
 
