@@ -16,7 +16,6 @@ Go
 <h2>Instalação</h2>
 Clone o repositório:
 
-bash
 git clone [https://github.com/seu-usuario/seu-projeto.git](https://github.com/LaelMartinez/DesafioGO)
 cd seu-projeto
 
